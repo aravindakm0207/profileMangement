@@ -15,7 +15,7 @@ A full-stack **MERN** application for managing user profiles. This project follo
   - Passwords hashed with **bcrypt**.
   - **JWT** tokens for secure authentication.
 - **Validations**:
-  - Input validation for all required fields.
+  - Input validation for all required fields.(express-validator)
 - **File Uploads**:
   - Profile images uploaded using **Multer** and stored on **Cloudinary**.
 - Tested APIs with **Postman**.
@@ -37,6 +37,7 @@ A full-stack **MERN** application for managing user profiles. This project follo
     │   │   └── [name].js
     │   └── index.js
 ---
+
 
 
 
