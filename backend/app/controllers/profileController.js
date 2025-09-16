@@ -12,21 +12,21 @@ profileCtrl.createProfile = async (req, res) => {
       email, phoneNumber, github, linkedin, resume
     } = req.body;
 
-    // Profile photo URL from Cloudinary
+    
     const photo = req.files?.photo ? req.files.photo[0].path : null;
     console.log("📸 Profile photo URL:", photo);
 
-    // Project images URLs
+   
     const projectImages = req.files?.projectImages
       ? req.files.projectImages.map(file => file.path)
       : [];
     console.log("🖼️ Project images URLs:", projectImages);
 
-    // Parse skills
+    
     const parsedSkills = skills ? skills.split(",").map(s => s.trim()) : [];
     console.log("💡 Parsed skills:", parsedSkills);
 
-    // Parse projects JSON and map images
+  
     let parsedProjects = [];
     if (projects) {
       parsedProjects = JSON.parse(projects).map((proj, idx) => ({
@@ -58,7 +58,7 @@ profileCtrl.createProfile = async (req, res) => {
     res.status(201).json({ message: "Profile created successfully", profile: newProfile });
 
   } catch (err) {
-    console.error("❌ Error in createProfile:", err);
+    console.error(" Error in createProfile:", err);
     res.status(500).json({ error: err.message });
   }
 };

@@ -1,18 +1,17 @@
+
 const multer = require('multer');
 const { CloudinaryStorage } = require('multer-storage-cloudinary');
 const cloudinary = require('../../cloudinaryConfig');
-
-// Set up Cloudinary storage
 const storage = new CloudinaryStorage({
   cloudinary: cloudinary,
   params: {
-    folder: 'uploads', // Replace 'uploads' with your desired Cloudinary folder
-    format: async (req, file) => 'jpg', // Specify format (optional)
-    public_id: (req, file) => `${Date.now()}-${file.originalname.split('.')[0]}`, // Unique public ID
+    folder: 'uploads', 
+    format: async (req, file) => 'jpg', 
+    public_id: (req, file) => `${Date.now()}-${file.originalname.split('.')[0]}`, 
   },
 });
 
-// File filter to accept only images
+
 const fileFilter = (req, file, cb) => {
   if (file.mimetype.startsWith('image/')) {
     cb(null, true);
@@ -21,11 +20,11 @@ const fileFilter = (req, file, cb) => {
   }
 };
 
-// Set up Multer
+
 const upload = multer({
   storage: storage,
   fileFilter: fileFilter,
-  limits: { fileSize: 5 * 1024 * 1024 }, // Limit size to 5MB
+  limits: { fileSize: 5 * 1024 * 1024 }, 
 });
 
 module.exports = upload;

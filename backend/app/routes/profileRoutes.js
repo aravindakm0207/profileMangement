@@ -2,12 +2,12 @@ const express = require("express");
 const profileCtrl  = require("../controllers/profileController");
 const upload = require("../middlewares/upload"); 
 const router = express.Router();
-// profileRoutes.js
+
 router.post(
   "/",
   upload.fields([
-    { name: "photo", maxCount: 1 },          // profile picture
-    { name: "projectImages", maxCount: 10 }, // project screenshots
+    { name: "photo", maxCount: 1 },         
+    { name: "projectImages", maxCount: 10 }, 
   ]),
   profileCtrl.createProfile
 );

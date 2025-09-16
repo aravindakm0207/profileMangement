@@ -21,13 +21,7 @@ usersCltr.register = async (req, res) => {
         res.status(500).json({ error: 'something went wrong'})
     }
 
-    // User.create(body)
-    //     .then((user) => {
-    //         res.status(201).json(user)
-    //     })
-    //     .catch((err) => {
-    //         res.status(500).json({ error: 'something went wrong'})
-    //     })
+  
 }
 
 usersCltr.login = async (req, res) => {
